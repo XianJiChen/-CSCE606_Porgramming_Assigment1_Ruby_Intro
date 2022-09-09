@@ -53,5 +53,37 @@ end
 
 # Object representing a book
 class BookInStock
-  # YOUR CODE HERE
+  @isbn
+  @price
+
+  def initialize(isbn, price)
+    self.isbn = isbn
+    self.price = price / 1.0
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def price
+    @price
+  end
+
+  def isbn=(isbn)
+    raise ArgumentError.new(
+      "ISBN number can't be empty!"
+    ) if isbn.empty?()
+    @isbn = isbn
+  end
+
+  def price=(price)
+    raise ArgumentError.new(
+      "The price can't be less than or equal to zero!"
+    ) if(price<=0)
+    @price = price
+  end
+
+  def price_as_string
+    "$%.2f" % @price
+  end
 end
