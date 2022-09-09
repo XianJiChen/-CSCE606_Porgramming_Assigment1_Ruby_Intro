@@ -21,26 +21,32 @@ def sum_to_n?(arr, number)
     appeared_nums = Set[]
     (0..arr.length-1).each do |i|
         if(appeared_nums.include?(number-arr[i]))
-            return true;
+            return true
         else
             appeared_nums.add(arr[i])
         end
     end
-    false;
+    false
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant?(string)
-  # YOUR CODE HERE
+  return string.start_with?(/^(?=[^aeiou])(?=[a-z]).*/i)
 end
 
 def binary_multiple_of_4?(string)
-  # YOUR CODE HERE
+    if(string.length==0 || !string.match(/\A(0|1)+\z/))
+        return false
+    elsif(string.length==1)
+        return string[0]=="0"
+    else
+        return string[-2..-1]=="00"
+    end
 end
 
 # Part 3
